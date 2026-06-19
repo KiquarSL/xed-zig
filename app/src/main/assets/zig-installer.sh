@@ -11,12 +11,11 @@ source "$LOCAL/bin/utils" 2>/dev/null || {
     exit 1
 }
 
-# ============================================
 # CONFIGURATION
-# ============================================
 
-LSP_DIR="$HOME/.lsp"
-INSTALL_DIR_ZIG="$LSP_DIR/zig"
+INSTALL_DIR_ZIG="$LOCAL/bin"
+
+LSP_DIR_ZLS="$HOME/.lsp/zig"
 
 ZIG_VERSION="0.13.0"
 ZLS_VERSION="$1"
@@ -26,9 +25,7 @@ if [ -z "$ZLS_VERSION" ]; then
     exit 1
 fi
 
-# ============================================
 # HELPERS
-# ============================================
 
 get_arch() {
     case "$(uname -m)" in
@@ -58,9 +55,7 @@ get_zls_url() {
     echo "https://github.com/zigtools/zls/releases/download/${ZLS_VERSION}/zls-${arch}-linux.tar.xz"
 }
 
-# ============================================
 # ZIG INSTALL
-# ============================================
 
 install_zig() {
     info "Installing Zig ${ZIG_VERSION}..."
@@ -74,18 +69,18 @@ install_zig() {
     curl -L "$url" | tar -xJ -C "$tmp_dir"
 
     mkdir -p "$INSTALL_DIR_ZIG"
-    rm -rf "$INSTALL_DIR_ZIG"/*
-    mv "$tmp_dir"/*/* "$INSTALL_DIR_ZIG/"
+    rm -rf "$INSTALL_DIR_ZIG/zig" 2>/dev/null || true
+    mv "$tmp_dir"/* "$INSTALL_DIR_ZIG/zig"
 
     rm -rf "$tmp_dir"
-    echo "$ZIG_VERSION" > "$INSTALL_DIR_ZIG/version.txt"
-	
-    info "Zig installed to $INSTALL_DIR_ZIG"
+    echo "$ZIG_VERSION" > "$INSTALL_DIR_ZIG/zig/version.txt"
+
+    chmod +x "$INSTALL_DIR_ZIG/zig/zig"
+
+    info "Zig installed to $INSTALL_DIR_ZIG/zig"
 }
 
-# ============================================
 # ZLS (LSP) INSTALL
-# ============================================
 
 install_zls() {
     info "Installing ZLS ${ZLS_VERSION}..."
@@ -96,31 +91,30 @@ install_zls() {
 
     curl -L "$url" | tar -xJ -C "$tmp_dir"
 
-    mkdir -p "$INSTALL_DIR_ZIG/bin"
-    mv "$tmp_dir"/zls "$INSTALL_DIR_ZIG/bin/zls"
-    chmod +x "$INSTALL_DIR_ZIG/bin/zls"
+    mkdir -p "$LSP_DIR_ZLS/bin"
+    mv "$tmp_dir"/zls "$LSP_DIR_ZLS/bin/zls"
+    chmod +x "$LSP_DIR_ZLS/bin/zls"
 
     rm -rf "$tmp_dir"
-    echo "$ZLS_VERSION" > "$INSTALL_DIR_ZIG/zls_version.txt"
+    echo "$ZLS_VERSION" > "$LSP_DIR_ZLS/zls_version.txt"
 
-    info "ZLS installed to $INSTALL_DIR_ZIG/bin/zls"
+    info "ZLS installed to $LSP_DIR_ZLS/bin/zls"
 }
 
-# ============================================
 # MAIN
-# ============================================
 
 case "$1" in
     --uninstall)
         info "Uninstalling Zig and ZLS..."
-        rm -rf "$INSTALL_DIR_ZIG"
-		rm /bin/zig
+        rm -rf "$INSTALL_DIR_ZIG/zig"
+        rm -rf "$LSP_DIR_ZLS"
         info "Uninstalled successfully."
         exit 0
         ;;
     --update)
         info "Updating..."
-        rm -rf "$INSTALL_DIR_ZIG"
+        rm -rf "$INSTALL_DIR_ZIG/zig"
+        rm -rf "$LSP_DIR_ZLS"
         install_zig
         install_zls
         exit 0
@@ -134,8 +128,14 @@ case "$1" in
             install_zls
         fi
 		
-		echo "export PATH=\$PATH/:/home/.lsp/zig/bin:/home/.lsp/zig/" >> ~/.bashrc
-		
+        if ! grep -q "export PATH=\$PATH:\$LOCAL/bin/zig" ~/.bashrc; then
+            echo "export PATH=\$PATH:\$LOCAL/bin/zig" >> ~/.bashrc
+        fi
+        if ! grep -q "export PATH=\$PATH:\$HOME/.lsp/zig/bin" ~/.bashrc; then
+            echo "export PATH=\$PATH:\$HOME/.lsp/zig/bin" >> ~/.bashrc
+        fi
+
+        info "All done! Restart your terminal or run: source ~/.bashrc"
         exit 0
         ;;
 esac

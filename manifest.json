@@ -3,7 +3,7 @@
   "id": "io.kiquar.plugin.zig",
   "name": "Zig Support",
   "mainClass": "io.kiquar.plugin.zig.Main",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Extension that provides Zig language and language server (LSP) support.",
   "author": {
     "displayName": "KiquarSL",

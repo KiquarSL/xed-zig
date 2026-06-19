@@ -10,8 +10,8 @@ After install extension install zig and zls in Settings > Editor > Language serv
 
 Check installed:
 ```bash
-ls /bin/zig
-ls /home/.lsp/zig/bin/zls
+zig --help
+zls --help
 ```
 
 ## Build
