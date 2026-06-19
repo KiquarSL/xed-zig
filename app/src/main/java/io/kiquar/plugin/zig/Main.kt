@@ -32,9 +32,9 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
     }
 
     private fun acquireLspInstallScript(): File {
-        val zigAssetStreams = context.assets.open("zig-installer")
+        val zigAssetStreams = context.assets.open("zig-installer.sh")
         val zigAsset = zigAssetStreams.bufferedReader().use { it.readText() }
-        val zigLspScript = getTempDir().child("zig-installer").also {
+        val zigLspScript = getTempDir().child("zig-installer.sh").also {
             it.writeText(zigAsset)
         }
         return zigLspScript
