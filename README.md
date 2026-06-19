@@ -13,3 +13,19 @@ Check installed:
 ls /bin/zig
 ls /home/.lsp/zig/bin/zls
 ```
+
+## Build
+
+Debug build:
+```bash
+./gradlew assembleDebug
+./gradlew :app:createFinalZip
+```
+
+Release build:
+```bash
+./gradlew assembleRelease
+./gradlew :app:createFinalZip
+```
+
+Or use files `./compileDebug` or `./compileRelease`
