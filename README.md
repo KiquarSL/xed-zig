@@ -1,4 +1,4 @@
-# Zig Plugin
+# Zig Extension
 
 This extension adds Zig language and ZLS (Zig Language server)
 
