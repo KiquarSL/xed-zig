@@ -20,7 +20,7 @@ class ZigServer(
     override val id = "zig"
     override val languageName = "Zig"
     override val serverName = "zls"
-    override val installId = "zls language server"
+    override val installId = "Zig and ZLS (Zig Language Server)"
 
     private val latestVersion by lazy {
         GithubReleasesApi("zigtools", "zls").fetchLatestVersion() ?: "0.13.0"

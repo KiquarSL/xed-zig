@@ -25,7 +25,7 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
     override fun onExtensionLoaded() {
         zigServer = ZigServer(
             icon = null,
-            supportedExtensions = listOf("zig", "zir"),
+            supportedExtensions = listOf("zig"),
             installScript = acquireLspInstallScript()
         ).also {
             LspRegistry.registerServer(it)
