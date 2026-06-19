@@ -12,7 +12,7 @@ import io.kiquar.plugin.zig.utils.GithubReleasesApi
 import java.io.File
 
 class ZigServer(
-    override val icon: Icon,
+    override val icon: Icon?,
     override val supportedExtensions: List<String>,
     override val installScript: File
 ) : ScriptedLspServer() {

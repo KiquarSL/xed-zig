@@ -23,10 +23,8 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
     }
 
     override fun onExtensionLoaded() {
-        val icon = null
-
         zigServer = ZigServer(
-            icon = icon,
+            icon = null,
             supportedExtensions = listOf("zig", "zir"),
             installScript = acquireLspInstallScript()
         ).also {
