@@ -132,6 +132,12 @@ case "$1" in
             install_zig
             install_zls
         fi
+		
+		mv /home/.lsp/zig/zig /bin/
+		chmod +x /bin/zig
+		
+		echo "export PATH=\$PATH/:/home/.lsp/zig/bin"
+		
         exit 0
         ;;
 esac
