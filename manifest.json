@@ -1,0 +1,17 @@
+{
+  "$schema": "schema/schema.json",
+  "id": "io.kiquar.plugin.zig",
+  "name": "Zig language",
+  "mainClass": "io.kiquar.plugin.zig.Main",
+  "version": "0.1.0",
+  "description": "Xed-Editor extension that provides Zig language and language server (LSP) support.",
+  "author": {
+    "displayName": "Kiquar",
+	"github": "KiquarSL"
+  },
+  "license": "MIT",
+  "tags": ["zig", "lsp"],
+  "minAppVersion": 95,
+  "maxAppVersion": 95,
+  "repository": "https://github.com/KiquarSL/xed-zig"
+}
