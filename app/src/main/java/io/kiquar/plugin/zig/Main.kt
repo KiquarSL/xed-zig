@@ -23,7 +23,7 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
     }
 
     override fun onExtensionLoaded() {
-        val icon = Icon.placeholder()
+        val icon = null
 
         zigServer = ZigServer(
             icon = icon,
