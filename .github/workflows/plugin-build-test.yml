@@ -33,9 +33,9 @@ jobs:
       - name: Make scripts executable
         run: chmod +x ./gradlew && chmod +x ./compileDebug && chmod +x ./compileRelease
 
-      # Build (Debug)
-      - name: Compile Debug
-        run: ./compileDebug
+      # Build Release
+      - name: Compile Release
+        run: ./compileRelease
         
       # Upload extension artifacts
       - name: Upload ZIP

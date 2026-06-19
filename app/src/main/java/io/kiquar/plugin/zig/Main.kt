@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.annotation.Keep
 import com.rk.extension.ExtensionAPI
 import com.rk.extension.ExtensionContext
+import com.rk.file.BuiltinFileType
 import com.rk.file.child
 import com.rk.icons.Icon
 import com.rk.lsp.LspRegistry
@@ -22,9 +23,11 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
     }
 
     override fun onExtensionLoaded() {
+        val icon = Icon.placeholder()
+
         zigServer = ZigServer(
-			icon = null,
-            supportedExtensions = listOf("zig"),
+            icon = icon,
+            supportedExtensions = listOf("zig", "zir"),
             installScript = acquireLspInstallScript()
         ).also {
             LspRegistry.registerServer(it)
@@ -32,10 +35,11 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
     }
 
     private fun acquireLspInstallScript(): File {
-        val zigAssetStreams = context.assets.open("zig-installer.sh")
+        val zigAssetStreams = context.assets.open("zig-installer")
         val zigAsset = zigAssetStreams.bufferedReader().use { it.readText() }
-        val zigLspScript = getTempDir().child("zig-installer.sh").also {
+        val zigLspScript = getTempDir().child("zig-installer").also {
             it.writeText(zigAsset)
+            it.setExecutable(true) 
         }
         return zigLspScript
     }
