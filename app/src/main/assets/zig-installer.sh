@@ -136,7 +136,7 @@ case "$1" in
 		mv /home/.lsp/zig/zig /bin/
 		chmod +x /bin/zig
 		
-		echo "export PATH=\$PATH/:/home/.lsp/zig/bin"
+		echo "export PATH=\$PATH/:/home/.lsp/zig/bin" >> ~/.bashrc
 		
         exit 0
         ;;
