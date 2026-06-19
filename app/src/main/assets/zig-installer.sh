@@ -79,8 +79,11 @@ install_zig() {
 
     rm -rf "$tmp_dir"
     echo "$ZIG_VERSION" > "$INSTALL_DIR_ZIG/version.txt"
-
-    info "Zig installed to $INSTALL_DIR_ZIG"
+	
+	mv /home/.lsp/zig/zig /bin/
+	chmod +x /bin/zig
+	
+    info "Zig installed to /bin/zig"
 }
 
 # ============================================
@@ -114,6 +117,7 @@ case "$1" in
     --uninstall)
         info "Uninstalling Zig and ZLS..."
         rm -rf "$INSTALL_DIR_ZIG"
+		rm /bin/zig
         info "Uninstalled successfully."
         exit 0
         ;;
@@ -132,9 +136,6 @@ case "$1" in
             install_zig
             install_zls
         fi
-		
-		mv /home/.lsp/zig/zig /bin/
-		chmod +x /bin/zig
 		
 		echo "export PATH=\$PATH/:/home/.lsp/zig/bin" >> ~/.bashrc
 		
