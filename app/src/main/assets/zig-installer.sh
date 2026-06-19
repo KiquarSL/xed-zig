@@ -80,10 +80,7 @@ install_zig() {
     rm -rf "$tmp_dir"
     echo "$ZIG_VERSION" > "$INSTALL_DIR_ZIG/version.txt"
 	
-	mv /home/.lsp/zig/zig /bin/
-	chmod +x /bin/zig
-	
-    info "Zig installed to /bin/zig"
+    info "Zig installed to $INSTALL_DIR_ZIG"
 }
 
 # ============================================
@@ -137,7 +134,7 @@ case "$1" in
             install_zls
         fi
 		
-		echo "export PATH=\$PATH/:/home/.lsp/zig/bin" >> ~/.bashrc
+		echo "export PATH=\$PATH/:/home/.lsp/zig/bin:/home/.lsp/zig/" >> ~/.bashrc
 		
         exit 0
         ;;
