@@ -29,11 +29,6 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
         ).also {
             LspRegistry.registerServer(it)
         }
-		
-		ZigRunner(
-        ).also {
-            RunnerManager.registerRunner(it)
-        }
     }
 
     private fun acquireLspInstallScript(): File {
