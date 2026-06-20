@@ -2,13 +2,32 @@
 
 This extension adds Zig language and ZLS (Zig Language server)
 
-### Installation
+## Installation
 
 Install the extension through the Xed-Editor's extension marketplace, and you're ready to go! Alternatively, you can download the latest release ZIP file and install it via Settings > Extensions > Install from storage.
 
 After install extension install zig and zls in Settings > Editor > Language servers > Zig > Install
 
-## Build
+## Usage
+
+**Create folder for project and go there**
+```bash
+mkdir test-project
+cd test-project
+```
+
+**Init project**
+```bash
+zig init
+```
+
+**Build and Run project**:
+```bash
+zig build run
+```
+
+
+## Build plugin
 
 Debug build:
 ```bash
