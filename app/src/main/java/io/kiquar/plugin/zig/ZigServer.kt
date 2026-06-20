@@ -6,13 +6,14 @@ import com.rk.exec.isTerminalInstalled
 import com.rk.file.child
 import com.rk.file.sandboxHomeDir
 import com.rk.icons.Icon
+import com.rk.file.BuiltinFileType
 import com.rk.lsp.LspConnectionConfig
 import com.rk.lsp.ScriptedLspServer
 import io.kiquar.plugin.zig.utils.GithubReleasesApi
 import java.io.File
 
 class ZigServer(
-    override val icon: Icon?,
+    override val icon: Icon? = BuiltinFileType.ZIG.icon,
     override val supportedExtensions: List<String>,
     override val installScript: File
 ) : ScriptedLspServer() {

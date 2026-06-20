@@ -24,11 +24,18 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
 
     override fun onExtensionLoaded() {
         zigServer = ZigServer(
-            icon = null,
             supportedExtensions = listOf("zig"),
             installScript = acquireLspInstallScript()
         ).also {
             LspRegistry.registerServer(it)
+        }
+		
+		typstCompileRunner = ZigCompileRunner(
+            icon = ic,
+            supportedExtensions = fileType.extensions,
+            resources = context.resources,
+        ).also {
+            RunnerManager.registerRunner(it)
         }
     }
 
