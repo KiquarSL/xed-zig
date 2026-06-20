@@ -14,7 +14,7 @@ import java.io.File
 
 class ZigServer(
     override val icon: Icon? = BuiltinFileType.ZIG.icon,
-    override val supportedExtensions: List<String>,
+    override val supportedExtensions: List<String> = listOf("zig"),
     override val installScript: File
 ) : ScriptedLspServer() {
 

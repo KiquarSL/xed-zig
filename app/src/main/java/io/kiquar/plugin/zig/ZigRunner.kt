@@ -11,7 +11,7 @@ import com.rk.file.BuiltinFileType
 
 class ZigRunner(
     private val icon: Icon = BuiltinFileType.ZIG.icon,
-    private val supportedExtensions: List<String>,
+    private val supportedExtensions: List<String> = listOf("zig"),
 ) : Runner() {
 
     override val id = "zig.runner"
