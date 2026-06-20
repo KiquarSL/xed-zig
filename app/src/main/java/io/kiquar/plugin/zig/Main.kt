@@ -31,7 +31,6 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
         }
 		
 		ZigRunner(
-            resources = context.resources,
         ).also {
             RunnerManager.registerRunner(it)
         }

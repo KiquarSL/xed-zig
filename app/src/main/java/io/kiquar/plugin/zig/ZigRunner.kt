@@ -1,6 +1,6 @@
 package io.kiquar.plugin.zig
 
-import android.content.Context
+import android.content.Activity
 import com.rk.file.FileObject
 import com.rk.icons.Icon
 import com.rk.runner.Runner
@@ -24,16 +24,13 @@ class ZigRunner(
         return supportedExtensions.contains(fileObject.getExtension())
     }
 
-    override suspend fun run(context: Context, fileObject: FileObject) {
+    override suspend fun run(activity: Activity, fileObject: FileObject) {
         val workingDir = fileObject.getParentFile()?.getAbsolutePath()
-        val activity = MainActivity.instance ?: return
-
         launchTerminal(
-            context = activity,
+            activity,
             terminalCommand = TerminalCommand(
                 exe = "zig",
-                args = arrayOf("run", fileObject.getName()), // 👈 исправлено
-                id = id,
+                args = arrayOf("run", fileObject.getName()),
                 workingDir = workingDir,
             ),
         )
