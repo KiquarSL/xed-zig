@@ -1,15 +1,7 @@
-#!/system/bin/sh
+#!/bin/sh
 set -e
 
-if [ -z "$LOCAL" ]; then
-    echo "ERROR: LOCAL variable not set"
-    exit 1
-fi
-
-source "$LOCAL/bin/utils" 2>/dev/null || {
-    echo "ERROR: Cannot source utils from $LOCAL/bin/utils"
-    exit 1
-}
+source "$LOCAL/bin/utils" 2>/dev/null 
 
 # CONFIGURATION
 
@@ -120,13 +112,8 @@ case "$1" in
         exit 0
         ;;
     *)
-        if [ -n "$1" ] && [[ "$1" != --* ]]; then
-            install_zig
-            install_zls
-        else
-            install_zig
-            install_zls
-        fi
+        install_zig
+        install_zls
 		
         if ! grep -q "export PATH=\$PATH:\$LOCAL/bin/zig" ~/.bashrc; then
             echo "export PATH=\$PATH:\$LOCAL/bin/zig" >> ~/.bashrc

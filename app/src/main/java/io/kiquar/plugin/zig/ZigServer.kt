@@ -23,15 +23,13 @@ class ZigServer(
     override val serverName = "zls"
     override val installId = "Zig and ZLS (Zig Language Server)"
 
-    private val latestVersion by lazy {
-        GithubReleasesApi("zigtools", "zls").fetchLatestVersion() ?: "0.13.0"
-    }
+    private val latestVersion = "0.13.0"
 
     override suspend fun isInstalled(context: Context): Boolean {
         if (!isTerminalInstalled()) {
             return false
         }
-        return sandboxHomeDir().child(".lsp/zig/bin/zls").exists()
+        return sandboxHomeDir().child(".lsp/zig/bin/zls").exists() && sandboxHomeDir().child("/local/zig").exists()
     }
 
     override fun install(activity: Activity) {

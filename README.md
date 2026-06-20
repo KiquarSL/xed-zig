@@ -8,12 +8,6 @@ Install the extension through the Xed-Editor's extension marketplace, and you're
 
 After install extension install zig and zls in Settings > Editor > Language servers > Zig > Install
 
-Check installed:
-```bash
-zig --help
-zls --help
-```
-
 ## Build
 
 Debug build:
