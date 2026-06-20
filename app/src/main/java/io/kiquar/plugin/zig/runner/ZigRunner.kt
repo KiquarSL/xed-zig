@@ -1,7 +1,7 @@
 package io.kiquar.plugin.zig.runner
 
 import android.content.Context
-import android.content.Activity
+import android.activity.Activity
 import android.content.res.Resources
 import com.koner.typst.utils.TypstInstallationManager
 import com.rk.file.FileObject
