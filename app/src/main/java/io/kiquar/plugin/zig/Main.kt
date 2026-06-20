@@ -14,11 +14,14 @@ import com.rk.utils.getTempDir
 import kotlinx.coroutines.runBlocking
 import java.io.File
 import kotlin.io.writeText
+import io.kiquar.plugin.zig.runner.ZigRunner
+import com.rk.runner.RunnerManager
 
 @Keep
 @Suppress("unused")
 class Main(context: ExtensionContext) : ExtensionAPI(context) {
     private var zigServer: ZigServer? = null
+	private var zigRunner: ZigRunner? = null
 
     override fun onInstalled() {
     }
@@ -28,6 +31,11 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
             installScript = acquireLspInstallScript()
         ).also {
             LspRegistry.registerServer(it)
+        }
+		zigRunner = ZigRunner(
+            resources = context.resources
+        ).also {
+            RunnerManager.registerRunner(it)
         }
     }
 
@@ -44,6 +52,9 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
     private fun dispose() {
         zigServer?.let {
             LspRegistry.unregisterServer(it)
+        }
+		zigRunner?.let {
+            RunnerManager.unregisterRunner(it)
         }
     }
 
