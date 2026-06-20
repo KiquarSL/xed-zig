@@ -24,7 +24,17 @@ class ZigRunner(
 
     override suspend fun run(context: Context, fileObject: FileObject) {
         val workingDir = fileObject.getParentFile()?.getAbsolutePath()
-        typstInstallationManager.launchTypstCommand(label, workingDir, "compile", fileObject.getName())
+        val activity = MainActivity.instance ?: return
+
+        launchTerminal(
+            context = activity,
+            terminalCommand = TerminalCommand(
+                exe = "zig",
+                args = arrayOf("run", "$1"),
+                id = id,
+                workingDir = workingDir,
+            ),
+        )
     }
 
     override suspend fun isRunning() = false
