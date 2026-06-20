@@ -1,10 +1,12 @@
 # Zig Extension
 
-This extension adds Zig language and ZLS (Zig Language server)
+This extension adds **[Zig language](https://ziglang.org/)** and ZLS (Zig Language server)
 
 ## Installation
 
-Install the extension through the Xed-Editor's extension marketplace, and you're ready to go! Alternatively, you can download the latest release ZIP file and install it via Settings > Extensions > Install from storage.
+Install the extension through the Xed-Editor's extension marketplace, and you're ready to go! 
+
+Alternatively, you can download the latest release ZIP file and install it via `Settings > Extensions > Install from storage`.
 
 After install extension install zig and zls in Settings > Editor > Language servers > Zig > Install
 
