@@ -6,15 +6,17 @@ import com.koner.typst.R
 import com.rk.file.FileObject
 import com.rk.icons.Icon
 import com.rk.runner.Runner
+import com.rk.exec.launchTerminal
+import com.rk.file.BuiltinFileType
 
 class ZigRunner(
-    private val icon: Icon,
+    private val icon: Icon = BuiltinFileType.ZIG.icon,
     private val supportedExtensions: List<String>,
 ) : Runner() {
 
     override val id = "zig.runner"
 
-    override val label = resources.getString(R.string.compile_document)
+    override val label = "Zig run"
 
     override fun getIcon(context: Context) = icon
 

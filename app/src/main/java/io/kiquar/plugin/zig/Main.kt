@@ -31,7 +31,6 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
         }
 		
 		typstCompileRunner = ZigCompileRunner(
-            icon = ic,
             supportedExtensions = fileType.extensions,
             resources = context.resources,
         ).also {
