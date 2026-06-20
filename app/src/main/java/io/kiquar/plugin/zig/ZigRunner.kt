@@ -2,7 +2,6 @@ package io.kiquar.plugin.zig.runner
 
 import android.content.Context
 import android.content.res.Resources
-import com.koner.typst.R
 import com.rk.file.FileObject
 import com.rk.icons.Icon
 import com.rk.runner.Runner
