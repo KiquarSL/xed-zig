@@ -1,7 +1,6 @@
-package io.kiquar.plugin.zig.runner
+package io.kiquar.plugin.zig
 
 import android.content.Context
-import android.content.res.Resources
 import com.rk.file.FileObject
 import com.rk.icons.Icon
 import com.rk.runner.Runner
@@ -33,7 +32,7 @@ class ZigRunner(
             context = activity,
             terminalCommand = TerminalCommand(
                 exe = "zig",
-                args = arrayOf("run", "$1"),
+                args = arrayOf("run", fileObject.getName()), // 👈 исправлено
                 id = id,
                 workingDir = workingDir,
             ),
