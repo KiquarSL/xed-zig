@@ -6,10 +6,11 @@ import com.rk.file.FileObject
 import com.rk.icons.Icon
 import com.rk.runner.Runner
 import com.rk.exec.launchTerminal
+import com.rk.exec.TerminalCommand
 import com.rk.file.BuiltinFileType
 
 class ZigRunner(
-    private val icon: Icon = BuiltinFileType.ZIG.icon,
+    private val icon: Icon? = BuiltinFileType.ZIG.icon,
     private val supportedExtensions: List<String> = listOf("zig"),
 ) : Runner() {
 

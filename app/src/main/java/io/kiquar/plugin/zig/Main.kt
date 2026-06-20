@@ -9,6 +9,7 @@ import com.rk.file.BuiltinFileType
 import com.rk.file.child
 import com.rk.icons.Icon
 import com.rk.lsp.LspRegistry
+import com.rk.runner.RunnerManager
 import com.rk.utils.getTempDir
 import kotlinx.coroutines.runBlocking
 import java.io.File
