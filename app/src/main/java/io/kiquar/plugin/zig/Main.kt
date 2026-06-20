@@ -30,7 +30,7 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
             LspRegistry.registerServer(it)
         }
 		
-		typstCompileRunner = ZigCompileRunner(
+		ZigCompileRunner(
             supportedExtensions = fileType.extensions,
             resources = context.resources,
         ).also {
