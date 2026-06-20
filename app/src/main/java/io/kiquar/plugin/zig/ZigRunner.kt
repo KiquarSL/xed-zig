@@ -8,6 +8,7 @@ import com.rk.runner.Runner
 import com.rk.exec.launchTerminal
 import com.rk.exec.TerminalCommand
 import com.rk.file.BuiltinFileType
+import com.rk.activities.main.MainActivity
 
 class ZigRunner(
     private val icon: Icon? = BuiltinFileType.ZIG.icon,
