@@ -12,13 +12,11 @@ import com.rk.exec.TerminalCommand
 import com.rk.activities.main.MainActivity
 
 class ZigRunner(
-    override val icon: Icon? = BuiltinFileType.ZIG.icon,
-    override val supportedExtensions: List<String> = listOf("zig"),
-    resources: Resources,
+    val icon: Icon? = BuiltinFileType.ZIG.icon,
+    val supportedExtensions: List<String> = listOf("zig"),
 ) : Runner() {
 
     override val id = "zig.run"
-
     override val label = "Run Zig"
 
     override fun getIcon(context: Context) = icon
