@@ -23,7 +23,7 @@ class ZigRunner(
 
     override fun matcher(fileObject: FileObject): Boolean {
         return supportedExtensions.contains(fileObject.getExtension())
-    }
+    } 
 
     override suspend fun run(activity: Activity, fileObject: FileObject) {
         val workingDir = fileObject.getParentFile()?.getAbsolutePath()

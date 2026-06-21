@@ -31,9 +31,7 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
         ).also {
             LspRegistry.registerServer(it)
         }
-		zigRunner = ZigRunner(
-            resources = context.resources
-        ).also {
+		zigRunner = ZigRunner().also {
             RunnerManager.registerRunner(it)
         }
     }
