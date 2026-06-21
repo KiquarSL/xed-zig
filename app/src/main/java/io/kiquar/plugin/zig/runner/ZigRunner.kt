@@ -29,8 +29,7 @@ class ZigRunner(
     }
 
     override suspend fun run(activity: Activity, fileObject: FileObject) {
-		val workingDir = fileObject.getParentFile()?.getAbsolutePath()
-		
+        val workingDir = fileObject.getParentFile()?.getAbsolutePath()
         launchTerminal(
             activity = activity,
             terminalCommand = TerminalCommand(
