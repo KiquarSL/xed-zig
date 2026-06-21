@@ -3,7 +3,6 @@ package io.kiquar.plugin.zig.runner
 import android.content.Context
 import android.app.Activity
 import android.content.res.Resources
-import com.koner.typst.utils.TypstInstallationManager
 import com.rk.file.FileObject
 import com.rk.icons.Icon
 import com.rk.runner.Runner
