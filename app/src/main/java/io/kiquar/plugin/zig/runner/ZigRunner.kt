@@ -13,7 +13,7 @@ import com.rk.activities.main.MainActivity
 
 class ZigRunner(
     val icon: Icon? = BuiltinFileType.ZIG.icon,
-    val supportedExtensions: List<String> = listOf("zig"),
+    val supportedExtensions: List<String> = listOf("zig", "zon"),
 ) : Runner() {
 
     override val id = "zig.run"
