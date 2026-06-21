@@ -10,7 +10,7 @@
 	"github": "KiquarSL"
   },
   "license": "MIT",
-  "tags": ["zig", "lsp", "zls"],
+  "tags": ["zig", "lsp", "zls", "zon"],
   "minAppVersion": 95,
   "maxAppVersion": null,
   "repository": "https://github.com/KiquarSL/xed-zig"
