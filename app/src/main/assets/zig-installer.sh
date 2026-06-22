@@ -1,7 +1,7 @@
 #!/system/bin/sh
 set -e
 
-source "$HOME/.local/bin/utils" 2>/dev/null
+source "utils" 2>/dev/null
 
 # CONFIGURATION
 INSTALL_DIR_ZIG="$HOME/.local/zig"
