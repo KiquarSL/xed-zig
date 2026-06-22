@@ -29,7 +29,7 @@ class ZigServer(
         if (!isTerminalInstalled()) {
             return false
         }
-        return sandboxHomeDir().child(".lsp/zig/bin/zls").exists() && sandboxHomeDir().child("/local/zig").exists()
+        return sandboxHomeDir().child(".lsp/zig/bin/zls").exists()
     }
 
     override fun install(activity: Activity) {
