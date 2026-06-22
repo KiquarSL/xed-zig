@@ -3,10 +3,12 @@
 All notable changes to this project will be documented in this file.
 
 ### v0.4.0 - 2026-06-22
-**Changes**\
+**Changes**
+
 Moved zig and zls to /home/.local/zig
 
-**Added**\
+**Added**
+
 Zig Runner
 
 ### v0.1.0-v0.3.0
