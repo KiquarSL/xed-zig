@@ -52,7 +52,7 @@ class ZigServer(
 
     override fun getConnectionConfig(): LspConnectionConfig {
         return LspConnectionConfig.Process(arrayOf(
-            "\$HOME/.local/bin/zls"
+            sandboxHomeDir().child(".local/bin/zls").absolutePath
         ))
     }
 }
