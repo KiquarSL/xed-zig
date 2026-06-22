@@ -30,7 +30,7 @@ class ZigRunner(
         launchTerminal(
             activity = activity,
             terminalCommand = TerminalCommand(
-                exe = "\$LOCAL/bin/zig/zig",
+                exe = "\$HOME/.local/zig/zig",
                 args = arrayOf("run", fileObject.getName()),
                 id = id,
                 workingDir = workingDir,

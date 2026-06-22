@@ -45,7 +45,7 @@ class ZigServer(
     }
 
     override suspend fun isUpdatable(context: Context): Boolean {
-        val versionFile = sandboxHomeDir().child(".local/zig/zls_version.txt")
+        val versionFile = sandboxHomeDir().child(".local/zig/zls/zls_version.txt")
         val currentVersionText = runCatching { versionFile.readText().trim() }.getOrNull() ?: return false
         return currentVersionText != latestVersion
     }
