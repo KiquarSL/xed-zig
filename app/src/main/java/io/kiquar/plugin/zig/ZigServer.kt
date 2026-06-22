@@ -29,7 +29,7 @@ class ZigServer(
         if (!isTerminalInstalled()) {
             return false
         }
-        return sandboxHomeDir().child(".lsp/zig/bin/zls").exists()
+        return sandboxHomeDir().child(".local/zig/bin/zls").exists()
     }
 
     override fun install(activity: Activity) {
@@ -45,14 +45,14 @@ class ZigServer(
     }
 
     override suspend fun isUpdatable(context: Context): Boolean {
-        val versionFile = sandboxHomeDir().child(".lsp/zig/zls_version.txt")
+        val versionFile = sandboxHomeDir().child(".local/zig/zls_version.txt")
         val currentVersionText = runCatching { versionFile.readText().trim() }.getOrNull() ?: return false
         return currentVersionText != latestVersion
     }
 
     override fun getConnectionConfig(): LspConnectionConfig {
         return LspConnectionConfig.Process(arrayOf(
-            sandboxHomeDir().child(".lsp/zig/bin/zls").absolutePath
+            sandboxHomeDir().child(".local/zig/bin/zls").absolutePath
         ))
     }
 }
