@@ -52,7 +52,7 @@ class ZigServer(
 
     override fun getConnectionConfig(): LspConnectionConfig {
         return LspConnectionConfig.Process(arrayOf(
-            "zls"
+            "\$HOME/.local/bin/zls"
         ))
     }
 }
