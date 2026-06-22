@@ -29,7 +29,7 @@ class ZigServer(
         if (!isTerminalInstalled()) {
             return false
         }
-        return sandboxHomeDir().child(".local/zig/bin/zls").exists()
+        return sandboxHomeDir().child(".local/zig/zls/zls").exists()
     }
 
     override fun install(activity: Activity) {
@@ -52,7 +52,7 @@ class ZigServer(
 
     override fun getConnectionConfig(): LspConnectionConfig {
         return LspConnectionConfig.Process(arrayOf(
-            sandboxHomeDir().child(".local/zig/bin/zls").absolutePath
+            sandboxHomeDir().child(".local/zig/zls/zls").absolutePath
         ))
     }
 }
