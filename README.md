@@ -10,6 +10,8 @@ Alternatively, you can download the latest release ZIP file and install it via `
 
 After install extension install zig and zls in Settings > Editor > Language servers > Zig > Install
 
+![example](https://github/KiquarSL/xed-zig/screenshots/main.png)
+
 ## Usage
 
 **Create folder for project and go there**
