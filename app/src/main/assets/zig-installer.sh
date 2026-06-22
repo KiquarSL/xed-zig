@@ -118,6 +118,9 @@ case "$1" in
         if ! grep -q "export PATH=\$PATH:\$LOCAL/bin/zig" ~/.bashrc; then
             echo "export PATH=\$PATH:\$LOCAL/bin/zig" >> ~/.bashrc
         fi
+		if ! grep -q "export PATH=\$PATH:\$LOCAL/bin/zig/zig" ~/.bashrc; then
+            echo "export PATH=\$PATH:\$LOCAL/bin/zig/zig" >> ~/.bashrc
+        fi
         if ! grep -q "export PATH=\$PATH:\$HOME/.lsp/zig/bin" ~/.bashrc; then
             echo "export PATH=\$PATH:\$HOME/.lsp/zig/bin" >> ~/.bashrc
         fi
