@@ -2,9 +2,9 @@
 
 All notable changes to this project will be documented in this file.
 
-### v0.5.1 - 2026-06-22
+### v0.5.2 - 2026-06-22
 **Changes**
-- Up zig version to 0.16.0
+- Up zig version to 0.15.2
 
 ### v0.5.0 - 2026-07-22
 **Added**

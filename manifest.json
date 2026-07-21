@@ -3,7 +3,7 @@
   "id": "io.kiquar.plugin.zig",
   "name": "Zig Support",
   "mainClass": "io.kiquar.plugin.zig.Main",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Extension that provides Zig language and ZLS support.",
   "author": {
     "displayName": "KiquarSL",
