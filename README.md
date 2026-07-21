@@ -30,7 +30,7 @@ zig init
 zig build run
 ```
 
-Or open file `build.zig` or `build.zon` for run project with runner.
+Or open file `build.zig` or `build.zig.zon` for run project with runner.
 
 ## Build plugin
 

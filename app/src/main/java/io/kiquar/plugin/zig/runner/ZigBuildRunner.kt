@@ -20,7 +20,7 @@ class ZigBuildRunner(
 
     override fun matcher(fileObject: FileObject): Boolean {
         val name = fileObject.getName()
-        return name == "build.zig" || name == "build.zon"
+        return name == "build.zig" || name == "build.zig.zon"
     }
 
     override suspend fun run(activity: Activity, fileObject: FileObject) {
