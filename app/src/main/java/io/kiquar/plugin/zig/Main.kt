@@ -25,6 +25,8 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
 
     override fun onInstalled() {}
 
+    override fun onLoad() {}
+
     override fun onExtensionLoaded() {
         zigServer = ZigServer(
             installScript = acquireLspInstallScript()
@@ -39,7 +41,7 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
         }
     }
 
-    override fun onUpdated() {
+    override fun onUpdate() {
         dispose()
     }
 

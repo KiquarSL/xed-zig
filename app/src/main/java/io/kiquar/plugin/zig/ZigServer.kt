@@ -1,6 +1,7 @@
 package io.kiquar.plugin.zig
 
 import android.app.Activity
+import android.content.Context
 import com.rk.exec.isTerminalInstalled
 import com.rk.file.child
 import com.rk.file.sandboxHomeDir
@@ -23,9 +24,13 @@ class ZigServer(
 
     private val latestVersion = "0.13.0"
 
-    override suspend fun isInstalled(context: android.content.Context): Boolean {
+    override suspend fun isInstalled(context: Context): Boolean {
         if (!isTerminalInstalled()) return false
         return sandboxHomeDir().child(".local/zig/zls/zls").exists()
+    }
+
+    override suspend fun hasUpdate(context: Context): Boolean {
+        return isUpdatable(context)
     }
 
     override fun install(activity: Activity) {
@@ -40,7 +45,7 @@ class ZigServer(
         launchInstaller(activity, "--update", latestVersion)
     }
 
-    override suspend fun isUpdatable(context: android.content.Context): Boolean {
+    override suspend fun isUpdatable(context: Context): Boolean {
         val versionFile = sandboxHomeDir().child(".local/zig/zls/zls_version.txt")
         val currentVersion = runCatching { versionFile.readText().trim() }.getOrNull()
             ?: return false
