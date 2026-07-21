@@ -1,6 +1,6 @@
 import com.google.gson.Gson
-import java.net.URL
 import com.google.gson.JsonObject
+import java.net.URL
 
 plugins {
     alias(libs.plugins.android.application)

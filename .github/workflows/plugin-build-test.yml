@@ -1,8 +1,6 @@
-name: Extension Compile Test
+name: Extension Build
 
 on:
-  schedule:
-    - cron: "0 */24 * * *"
   push:
     branches:
       - main
@@ -31,15 +29,15 @@ jobs:
 
       # Make scripts executable
       - name: Make scripts executable
-        run: chmod +x ./gradlew && chmod +x ./compileDebug && chmod +x ./compileRelease
+        run: chmod +x ./gradlew
 
       # Build Release
       - name: Compile Release
-        run: ./compileRelease
+        run: ./gradlew assembleRelease && ./gradlew :app:createFinalZip
         
       # Upload extension artifacts
       - name: Upload ZIP
         uses: actions/upload-artifact@v4
         with:
-          name: extension-build
+          name: zig-support
           path: output/*.zip

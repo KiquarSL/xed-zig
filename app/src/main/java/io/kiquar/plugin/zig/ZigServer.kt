@@ -1,7 +1,6 @@
 package io.kiquar.plugin.zig
 
 import android.app.Activity
-import android.content.Context
 import com.rk.exec.isTerminalInstalled
 import com.rk.file.child
 import com.rk.file.sandboxHomeDir
@@ -9,7 +8,6 @@ import com.rk.icons.Icon
 import com.rk.file.BuiltinFileType
 import com.rk.lsp.LspConnectionConfig
 import com.rk.lsp.ScriptedLspServer
-import io.kiquar.plugin.zig.utils.GithubReleasesApi
 import java.io.File
 
 class ZigServer(
@@ -25,10 +23,8 @@ class ZigServer(
 
     private val latestVersion = "0.13.0"
 
-    override suspend fun isInstalled(context: Context): Boolean {
-        if (!isTerminalInstalled()) {
-            return false
-        }
+    override suspend fun isInstalled(context: android.content.Context): Boolean {
+        if (!isTerminalInstalled()) return false
         return sandboxHomeDir().child(".local/zig/zls/zls").exists()
     }
 
@@ -44,10 +40,11 @@ class ZigServer(
         launchInstaller(activity, "--update", latestVersion)
     }
 
-    override suspend fun isUpdatable(context: Context): Boolean {
+    override suspend fun isUpdatable(context: android.content.Context): Boolean {
         val versionFile = sandboxHomeDir().child(".local/zig/zls/zls_version.txt")
-        val currentVersionText = runCatching { versionFile.readText().trim() }.getOrNull() ?: return false
-        return currentVersionText != latestVersion
+        val currentVersion = runCatching { versionFile.readText().trim() }.getOrNull()
+            ?: return false
+        return currentVersion != latestVersion
     }
 
     override fun getConnectionConfig(): LspConnectionConfig {

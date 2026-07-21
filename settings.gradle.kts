@@ -24,6 +24,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ZigExtension"
+rootProject.name = "Zig Support"
 include(":app")
  

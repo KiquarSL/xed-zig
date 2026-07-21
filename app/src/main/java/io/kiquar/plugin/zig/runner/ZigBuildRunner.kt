@@ -9,28 +9,29 @@ import com.rk.exec.launchTerminal
 import com.rk.icons.Icon
 import com.rk.runner.Runner
 
-class ZigRunner(
+class ZigBuildRunner(
     val icon: Icon? = BuiltinFileType.ZIG.icon,
-    val supportedExtensions: List<String> = listOf("zig"),
 ) : Runner() {
 
-    override val id = "zig.run"
-    override val label = "Run Zig"
+    override val id = "zig.build.run"
+    override val label = "Zig Build Run"
 
     override fun getIcon(context: Context) = icon
 
     override fun matcher(fileObject: FileObject): Boolean {
-        return supportedExtensions.contains(fileObject.getExtension())
+        val name = fileObject.getName()
+        return name == "build.zig" || name == "build.zon"
     }
 
     override suspend fun run(activity: Activity, fileObject: FileObject) {
+        val workingDir = fileObject.getParentFile()?.getAbsolutePath()
         launchTerminal(
             activity = activity,
             terminalCommand = TerminalCommand(
                 exe = "\$HOME/.local/zig/zig",
-                args = arrayOf("run", fileObject.getName()),
+                args = arrayOf("build", "run"),
                 id = id,
-                workingDir = fileObject.getParentFile()?.getAbsolutePath(),
+                workingDir = workingDir,
             ),
         )
     }
