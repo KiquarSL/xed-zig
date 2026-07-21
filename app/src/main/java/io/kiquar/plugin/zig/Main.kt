@@ -41,10 +41,6 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
         }
     }
 
-    override fun onUpdate() {
-        dispose()
-    }
-
     override fun onUninstalled() {
         context.currentActivity?.let { activity ->
             runBlocking {
