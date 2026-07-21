@@ -22,7 +22,7 @@ class ZigServer(
     override val serverName = "zls"
     override val installId = "Zig and ZLS (Zig Language Server)"
 
-    private val latestVersion = "0.13.0"
+    private val latestVersion = "0.16.0"
 
     override suspend fun isInstalled(context: Context): Boolean {
         if (!isTerminalInstalled()) return false

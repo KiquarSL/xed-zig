@@ -24,9 +24,6 @@ get_arch() {
         aarch64|arm64)
             echo "aarch64"
             ;;
-        armv7l|arm)
-            echo "armv7l"
-            ;;
         *)
             error "Unsupported architecture: $(uname -m)"
             exit 1
