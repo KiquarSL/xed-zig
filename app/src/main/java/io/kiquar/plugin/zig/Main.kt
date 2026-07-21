@@ -1,5 +1,7 @@
 package io.kiquar.plugin.zig
 
+import android.app.Activity
+import android.os.Bundle
 import androidx.annotation.Keep
 import com.rk.extension.ExtensionAPI
 import com.rk.extension.ExtensionContext
@@ -20,6 +22,8 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
     private var zigServer: ZigServer? = null
     private var zigRunner: ZigRunner? = null
     private var zigBuildRunner: ZigBuildRunner? = null
+
+    override fun onInstalled() {}
 
     override fun onExtensionLoaded() {
         zigServer = ZigServer(
@@ -50,6 +54,14 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
         }
         dispose()
     }
+
+    override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {}
+    override fun onActivityDestroyed(activity: Activity) {}
+    override fun onActivityPaused(activity: Activity) {}
+    override fun onActivityResumed(activity: Activity) {}
+    override fun onActivitySaveInstanceState(activity: Activity, outState: Bundle) {}
+    override fun onActivityStarted(activity: Activity) {}
+    override fun onActivityStopped(activity: Activity) {}
 
     private fun dispose() {
         zigServer?.let {

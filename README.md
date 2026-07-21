@@ -30,6 +30,7 @@ zig init
 zig build run
 ```
 
+Or open file `build.zig` or `build.zon` for run project with runner.
 
 ## Build plugin
 
@@ -44,5 +45,3 @@ Release build:
 ./gradlew assembleRelease
 ./gradlew :app:createFinalZip
 ```
-
-Or use files `./compileDebug` or `./compileRelease`
