@@ -7,7 +7,7 @@ source "utils" 2>/dev/null
 INSTALL_DIR_ZIG="$HOME/.local/zig"
 LSP_DIR_ZLS="$HOME/.local/zig/zls"
 
-ZIG_VERSION="0.15.2"
+ZIG_VERSION="0.16.0"
 ZLS_VERSION="$1"
 
 if [ -z "$ZLS_VERSION" ]; then
@@ -33,7 +33,7 @@ get_arch() {
 
 get_zig_url() {
     local arch="$1"
-    echo "https://ziglang.org/download/${ZIG_VERSION}/zig-linux-${arch}-${ZIG_VERSION}.tar.xz"
+    echo "https://ziglang.org/download/${ZIG_VERSION}/zig-${arch}-linux-${ZIG_VERSION}.tar.xz"
 }
 
 get_zls_url() {
