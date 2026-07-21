@@ -2,10 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
-### v0.4.0 - 2026-06-22
+### v0.5.1 - 2026-06-22
+**Changes**
+- Up zig version to 0.16.0
+
+### v0.5.0 - 2026-07-22
 **Added**
 - ZigBuildRunner for files `build.zig`, `build.zon`
-**Chnages**
+**Changes**
 - Clean up source code
 - Up zls version to `0.16.0`
 

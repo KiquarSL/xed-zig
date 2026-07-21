@@ -7,7 +7,7 @@ source "utils" 2>/dev/null
 INSTALL_DIR_ZIG="$HOME/.local/zig"
 LSP_DIR_ZLS="$HOME/.local/zig/zls"
 
-ZIG_VERSION="0.13.0"
+ZIG_VERSION="0.16.0"
 ZLS_VERSION="$1"
 
 if [ -z "$ZLS_VERSION" ]; then
